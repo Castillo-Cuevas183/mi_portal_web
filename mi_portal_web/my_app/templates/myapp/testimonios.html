@@ -1,20 +1,24 @@
-<!DOCTYPE html>
+{% extends 'myapp/base.html' %}
+{% block title %} home {% endblock title %}
 {% load static %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Testimonios</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-<body>
-    <h1>Bienvenidos a esta página</h1>
-    <p>Esta es la página de Testimonios de Clientes</p>
-    
-        <section>
-            <h2>Testimonios actuales</h2>
-            <img src="static/css/img/testimonio.jpeg" alt="">
-    </section>
-    
-</body>
-</html>
+
+{% block content %}
+<h1>Bienvenidos a esta página</h1>
+<p>Esta es la página de Testimonios de Clientes</p>
+<div class="row">
+    {% if testimonios %}
+        {% for testimonio in testimonios %}
+        <div class="card" style="width: 18rem;">
+            <img src="{{ testimonio.image }}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{ testimonio.name }}</h5>
+              <p class="card-text">{{ testimonio.description }}</p>
+              <a href="{{ testimonio.url }}" target="_blank" class="btn btn-primary">Visitar el sitio</a>
+            </div>
+          </div>
+        {% endfor %}
+    {% else %}
+        <p>No hay testimonios disponibles en este momento.</p>
+    {% endif %}
+</div>
+{% endblock %}

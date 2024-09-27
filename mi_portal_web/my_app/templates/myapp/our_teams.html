@@ -1,15 +1,19 @@
-<!DOCTYPE html>
+{% extends 'myapp/base.html' %}
+{% block title %} home {% endblock title%}
 {% load static %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuestro Equipo</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-<body>
+
+{% block content %}
     <h1>Bienvenidos a esta página</h1>
     <p>Esta es la página de Nuestro Equipo</p>
-    
-</body>
-</html>
+    <div class="card">
+        <img src="{% static 'css/img/team.jpg' %}" class="d-block w-100" alt="...">
+      
+        <div class="card-body">
+          <h5 class="card-title">Nuestro Equipo</h5>
+          <p class="card-text">Innovación y metas claras nos caracteriza</p>
+        
+        </div>
+      </div>
+
+
+{% endblock %}

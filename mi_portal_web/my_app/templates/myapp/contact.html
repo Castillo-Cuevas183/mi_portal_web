@@ -1,13 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página de Contacto</title>
-</head>
-<body>
+{% extends 'myapp/base.html' %}
+{% block title %} home {% endblock title%}
+{% load static %}
+
+{% block content %}
     <h1>Bienvenidos a esta página de contacto</h1>
     <p>Esta es la página de contacto</p>
     
-</body>
-</html>
+    <div class="card" style="width: 18rem;">
+        <img src="{% static 'css/img/contact.jpg' %}" class="d-block w-100" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Sección de contacto</h5>
+          <p class="card-text">te ayudamos a solucionar tus problemas</p>
+          <form>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              </div>
+          </form>
+          <a href="#" class="btn btn-primary">contactanos</a>
+        </div>
+      </div>
+{% endblock %}
