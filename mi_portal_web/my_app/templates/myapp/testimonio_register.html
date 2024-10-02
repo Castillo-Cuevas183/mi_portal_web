@@ -1,0 +1,13 @@
+{% extends 'myapp/base.html' %}
+{% block title %} Registro de Testimonios {% endblock title%}
+{% load static %}
+
+
+{% block content %}
+<h2>Registrar Testimonio</h2>
+<form method="post">
+    {% include 'myapp/_form.html' %}
+    <button type="submit" class = "btn btn-primary">Guardar</button>
+</form>
+
+{% endblock %}

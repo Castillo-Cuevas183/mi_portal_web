@@ -1,4 +1,30 @@
-{% extends 'myapp/base.html' %}
+{% extends 'myapp/base.html' %} 
+{% block title%} Testimonios {% endblock title%}
+{% load static %} 
+{%block content%}
+<h1>Testimonios</h1>
+<div class="row">
+{%if testimonails%}
+  {%for testimonio in testimonios%}
+    <div class="card" style="width: 18rem">
+      <h5 class="card-title">{{testimonio.nombre }}</h5>
+    <div class="card-body">
+    <p class="card-text">{{ testimonio.puesto }}<span>{{ testimonio.empresa }}</span></p>
+      <p class="card-text">{{ testimonio.descripcion }}</p>
+
+      <a href="{% url 'testmonio_register' %}">Agrega un testimonio</a>
+    </div>
+  </div>
+  {%endfor %}
+  {% else %}
+  <p>No hay testimonio al momento</p>
+{%endif%}
+</div>
+
+{% endblock content %}
+
+
+{% comment %} {% extends 'myapp/base.html' %}
 {% block title %} home {% endblock title %}
 {% load static %}
 
@@ -9,10 +35,12 @@
     {% if testimonios %}
         {% for testimonio in testimonios %}
         <div class="card" style="width: 18rem;">
-            <img src="{{ testimonio.image }}" class="card-img-top" alt="...">
+            <img src={% static project.image %} class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">{{ testimonio.name }}</h5>
               <p class="card-text">{{ testimonio.description }}</p>
+              <p class="card-text">{{ testimonio.puesto }}</p>
+              <p class="card-text">{{ testimonio.empresa }}</p>
               <a href="{{ testimonio.url }}" target="_blank" class="btn btn-primary">Visitar el sitio</a>
             </div>
           </div>
@@ -21,4 +49,4 @@
         <p>No hay testimonios disponibles en este momento.</p>
     {% endif %}
 </div>
-{% endblock %}
+{% endblock %} {% endcomment %}

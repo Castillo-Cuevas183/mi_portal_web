@@ -1,0 +1,13 @@
+{% extends 'myapp/base.html' %}
+{% block title %} Registro de Portafolio {% endblock title%}
+{% load static %}
+
+
+{% block content %}
+<h2>Registrar Portafolio</h2>
+<form method="post">
+    {% include 'myapp/_form.html' %}
+    <button type="submit" class = "btn btn-primary">Guardar</button>
+</form>
+
+{% endblock %}
